@@ -1,0 +1,13 @@
+@import '/src/styles';
+
+footer {
+    clear: both;
+    padding: 20px;
+    background: $footerBg;
+    color: $footerColor;
+    text-align: center;
+
+    .wrapper {
+        text-align: center;
+    }
+}
