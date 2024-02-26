@@ -1,7 +1,7 @@
 <footer>
-    <img src="" width="56" height="46" alt="" class="footer-logo" />
-    <div class="wrapper x">
-        <div class="fr"></div>
-        <div class="fl">&copy; {{ currentDate }} </div>
-    </div>
+    <section>
+        <div>&copy; {{ currentDate | date: 'yyyy' }}</div>
+        <div><img src="/assets/i/logo.png" width="56" height="56" alt="" class="footer-logo" /></div>
+        <div>email: <a [attr.href]="'mailto:' + contact">{{ contact }}</a></div>
+    </section>
 </footer>

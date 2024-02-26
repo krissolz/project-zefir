@@ -1,0 +1,44 @@
+@import 'styles';
+
+header {
+    padding: 20px;
+    background: $headerBg;
+    color: $headerColor;
+    img {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    h1 {
+        float: left;
+    }
+    .navigation {
+        float: right;
+    }
+}
+
+.wrapper {
+    overflow: hidden;
+    max-height: 50px;
+}
+
+.container {
+    height: 200px;
+    background: url($imageBg) no-repeat 50%;
+    background-size: cover;
+    margin: 0 0 25px;
+}
+
+@include tablet {
+    header {
+        padding-right: 10px;
+        h1 {
+            float: none;
+            a {
+                width: 45px;
+                overflow: hidden;
+                float: left;
+                margin-right: 5px;
+            }
+        }
+    }
+}
