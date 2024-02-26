@@ -1,0 +1,62 @@
+/* fonts */
+$fontSize: 16px;
+$fontFamily: 'Roboto', sans-serif;
+$color: #333;
+$footerColor: #fafafa;
+$headerColor: #fff;
+$linkColor: #0991e9;
+$buttonColor: #fff;
+$red: #ff0000;
+$lH: 1.5;
+$pagesLinkSize: 1.2rem;
+$pagesArrowSize: 1.5rem;
+
+/* backgrounds */
+$bg: #fafafa;
+$headerBg: #0991e9;
+$buttonBg: #0991e9;
+$cartBg: #525559;
+$disabled: #525559;
+$footerBg: #525559;
+$orderformBg: #ededed;
+$imageBg: 'https://assets-global.website-files.com/593da066e5608a435f48f966/595d204cb530df2999129394_AboutHeader_v2.jpg';
+$shadow: rgba(0,0,0,.2);
+
+/* borders */
+$border: #ccc;
+$focus: #0991e9;
+$orderform: #ccc;
+$image: #ccc;
+
+/* resolutions */
+$xxs: 375px;
+$sm: 450px;
+$xs: 576px;
+$ms: 768px;
+$md: 992px;
+$lg: 1366px;
+$xl: 1920px;
+
+@mixin mobile {
+    @media only screen and (max-width: $sm) {
+      @content;
+    }
+}
+
+@mixin tablet {  
+  @media only screen and (max-width: $md) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (max-width: $lg) {
+    @content;
+  }
+}
+  
+@mixin max-width($w) {
+  @media only screen and (max-width: $w) {
+    @content;
+  }
+}
