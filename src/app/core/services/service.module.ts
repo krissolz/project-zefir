@@ -5,6 +5,7 @@ import { allServices } from './services';
   providers: [
     ...allServices
   ],
-  imports: []
+  imports: [],
+  exports: []
 })
 export class ServiceModule { };
