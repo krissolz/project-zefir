@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { Book } from '../models';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { BooksService } from '../services/books.service';
 
 const mobile = environment.mobileRes;
@@ -31,7 +31,7 @@ export class PagingComponent implements OnInit, OnChanges {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private book$: BooksService
+    private bs: BooksService
   ) {
     this.page = 1;
     this.paging = [];
@@ -84,7 +84,7 @@ export class PagingComponent implements OnInit, OnChanges {
   }
 
   onResize(e?: Event){
-    this.pageimgNumber = this.book$.width$() >= mobile? desktopPages : mobilePages; 
+    this.pageimgNumber = this.bs.width$() >= mobile? desktopPages : mobilePages; 
     this.getPages();
   }
 

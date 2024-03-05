@@ -1,8 +1,8 @@
 <h2>{{ booksTitle }}</h2>
 
-<app-loading />
+<app-loading *ngIf="loading" />
 
-<ul>
+<ul *ngIf="!loading">
     <li *ngFor="let book of books;">
         <h3>{{ book.title }}</h3>
         <p>{{ book.id }}</p>
@@ -14,3 +14,5 @@
         </li>
     } -->
 </ul>
+
+<app-paging />
