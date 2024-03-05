@@ -31,7 +31,15 @@ export class BooksListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.bs.getBooks().subscribe({
+      next: res => this.books = res,
+      error: err => console.log('Error occured: ', err),
+      complete: () => {
+        this.loading = false;
+        this.bs.books$ = this.books;
+        console.log('Books: ', this.bs.books$);
+      }
+    });
   }
 
 }
