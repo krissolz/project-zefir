@@ -3,10 +3,12 @@ import { DatePipe, CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { IndexService } from './index';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
     ...IndexService,
+    LoadingComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -15,7 +17,8 @@ import { IndexService } from './index';
   ],
   providers: [],
   exports:[
-    ...IndexService
+    ...IndexService,
+    LoadingComponent
   ]
 })
 export class CoreModule { }
