@@ -12,6 +12,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class BooksService implements OnInit {
 
   public books$: Book[];
+  private cBooks$: Book[];
 
   constructor(
     private http: HttpClient,
@@ -19,10 +20,20 @@ export class BooksService implements OnInit {
     private route: ActivatedRoute,
   ) {
     this.books$ = [];
+    this.cBooks$ = [];
   }
 
   width$(): number{
     return Math.max( document.body.offsetWidth, document.documentElement.offsetWidth );
+  }
+
+  getUnicBooks(books: Book[]): Book[]{
+    return [...new Set(books)];
+  }
+
+  getCopiesNumber(id: string): number{
+    let arr = this.cBooks$.filter(item => item.id === id);
+    return arr.length;
   }
 
   getBooks(): Observable<Book[]> {

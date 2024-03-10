@@ -2,17 +2,62 @@
 
 <app-loading *ngIf="loading" />
 
-<ul *ngIf="!loading">
+<!-- <ul *ngIf="!loading">
     <li *ngFor="let book of books;">
         <h3>{{ book.title }}</h3>
         <p>{{ book.id }}</p>
     </li>
-    <!-- @for(book of books; track book){
+    @for(book of books; track book){
         <li>
             <h3>{{ book.title }}</h3>
             @if(book.id){ <p>{{ book.id }}</p> }
         </li>
-    } -->
-</ul>
+    }
+</ul> -->
+<!-- <app-paging /> -->
 
-<app-paging />
+<div class="container">
+    <section class="fl">
+        <h2>Books store list</h2>
+        <ol>
+            <li *ngFor="let book of books | slice : 0 : howMany; index as i;">
+                <h3>{{ i + 1 }}. {{ book.title }}</h3>
+                <p>
+                    <strong>author:</strong> {{ book.author }},<br />
+                    <strong>isbn:</strong> {{ book.author }},<br />
+                    <strong>price:</strong> {{ book.price  | currency :'USD':'symbol':'1.2-2' }}<br />
+                    <a href="javascript://"  [routerLink]="['/book', { id: i + 1 }]" routerLinkActive="active">
+                        see more &raquo;
+                    </a>
+                </p>
+                <button (click)="addToCart( book.id )">Add to cart</button>
+                <button (click)="removeFromCart( book.id )" *ngIf="checkBook(book.id)">Remove from cart</button>
+            </li>
+        </ol>
+        <p *ngIf="howMany < books.length" class="more mobile">
+            <button (click)="viewMore()">View more</button>
+        </p>
+    </section>
+    <aside class="fr">
+        <div class="sticky">
+            <app-icon-cart class="cart"></app-icon-cart>
+            <h2>My cart</h2>
+            <ol *ngIf="total">
+                <li *ngFor="let cBook of getUnic(cart); index as i;">
+                    <h3>{{ i + 1 }}. {{ cBook.title }} <span>in a price of
+                            {{ cBook.price  | currency :'USD':'symbol':'1.2-2' }}</span></h3>
+                    <p *ngIf="getNumber(cBook.id) > 1"><strong>{{ getNumber(cBook.id) }}</strong> copies of this book.</p>
+                </li>
+            </ol>
+            <p *ngIf="total">
+                <strong>The totalprice is: </strong> {{ total | currency :'USD':'symbol':'1.2-2' }}
+            </p>
+            <button (click)="goToCart()" *ngIf="total">
+                Make an order
+            </button>
+        </div>
+    </aside>
+</div>
+<p *ngIf="howMany < books.length" class="more desktop">
+    <button (click)="viewMore()">View more</button>
+</p>
