@@ -28,7 +28,6 @@ export class NavigationComponent implements OnInit {
   cancelToggle(event: Event){
     event.preventDefault();
     event.stopPropagation();
-    event.cancelBubble = true;
     return;
   }
 
