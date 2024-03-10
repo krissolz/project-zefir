@@ -49,7 +49,7 @@ export class BookComponent implements OnInit {
         console.log(res.page, res.books);
         this.page = res.page? +res.page : 1;
         this.books = res.books;
-        this.book = this.books[this.page];
+        this.book = this.books[this.page - 1];
       },
       error: err => console.log('Error occured: ', err),
       complete: () => {
