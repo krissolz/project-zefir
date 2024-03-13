@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+### Changing rights of powershell
+
+- first run powershell as administrator
+- enter this and execute this command: C:\> Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+### Some angular 17 flags
+
+--sckip-tests // scip test files could be executed globally when creating project or when creating some commopnent, directive ect.
+--no-standalone // makes app to be moduled during creating the project
+--directory ./ // could create project in existing directory
